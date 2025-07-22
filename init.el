@@ -38,7 +38,6 @@
 
 ;; Use catppuccin
 (use-package catppuccin-theme
-  :ensure t
   :init
   (load-theme 'catppuccin :no-confirm)
   (setq catppuccin-flavor 'mocha)
@@ -46,12 +45,10 @@
 
 ;; Use Doom Modeline
 (use-package doom-modeline
-  :ensure t
   :init (doom-modeline-mode 1))
 
 ;; Pretty Icons
-(use-package nerd-icons
-  :ensure t)
+(use-package nerd-icons)
 
 ;; Completion
 (use-package vertico
@@ -63,26 +60,40 @@
   :init
   (marginalia-mode))
 
-(use-package neotree
-  :ensure t)
+(use-package neotree)
 
 (use-package magit
   :bind (("C-x g" . magit-status)
-         ("C-x C-g" . magit-status))
-  )
+         ("C-x C-g" . magit-status)))
+(use-package git-gutter)
+(use-package git-gutter-fringe)
 
-(use-package rainbow-delimiters)
+ (use-package rainbow-delimiters)
 
 (use-package projectile
-  :ensure t
   :init
   (projectile-mode +1))
 
 ;; Ruby & Rails
-(use-package rubocop
-  :ensure t)
-(use-package rspec-mode
-  :ensure t)
-(use-package projectile-rails
-  :ensure t)
+(use-package rubocop)
+(use-package rspec-mode)
+(use-package projectile-rails)
 
+;; LSP
+(use-package eglot)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(catppuccin-theme doom-modeline git-gutter git-gutter-fringe magit
+                      marginalia neotree nerd-icons-ibuffer
+                      projectile-rails rainbow-delimiters rspec-mode
+                      rubocop vertico)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
