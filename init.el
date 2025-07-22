@@ -7,6 +7,13 @@
 (global-display-line-numbers-mode t)
 (electric-indent-mode nil)
 (electric-pair-mode t)
+(global-display-fill-column-indicator-mode t)
+(setq display-fill-column-indicator-column 100)
+(fset 'yes-or-no-p 'y-or-n-p)
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode nil)
+(setq-default inhibit-startup-message t
+  inhibit-startup-echo-area-message t)
 
 ;; Setup Mac command keys
 (setq mac-option-key-is-meta nil
@@ -59,7 +66,10 @@
 (use-package neotree
   :ensure t)
 
-(use-package magit)
+(use-package magit
+  :bind (("C-x g" . magit-status)
+         ("C-x C-g" . magit-status))
+  )
 
 (use-package rainbow-delimiters)
 
